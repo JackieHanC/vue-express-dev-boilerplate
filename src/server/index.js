@@ -15,7 +15,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 import config from '../../build/webpack.dev.conf'
 
 const app = express()
-
+const userAPI = require('./api/userapi')
 // 引入history模式让浏览器进行前端路由页面跳转
 app.use(history())
 
@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'views')))
 app.get('/', function (req, res) {
   res.sendFile('./views/index.html')
 })
+app.use('/api', userAPI)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -46,6 +47,8 @@ app.use(function (req, res, next) {
   err.status = 404
   next(err)
 })
+
+
 
 // error handler
 app.use(function (err, req, res, next) {

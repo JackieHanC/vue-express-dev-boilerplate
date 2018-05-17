@@ -4,6 +4,7 @@ import router from './router/index'
 import store from './store/store'
 
 import axios from 'axios'
+import semantic from 'semantic-ui-css/semantic.min.css'
 
 Vue.config.debug = true
 Vue.config.productionTip = false
